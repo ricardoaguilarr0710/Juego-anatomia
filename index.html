@@ -8,95 +8,96 @@
 </head>
 <body>
 <header>
- <div class="brand">AULA CLÍNICA <span>RECURSOS DE APRENDIZAJE · ENFERMERÍA</span></div>
- <div class="header-tag">MÓDULO 01 · SISTEMA ÓSEO</div>
+  <div class="brand">AULA CLÍNICA <span>RECURSOS DE APRENDIZAJE · ENFERMERÍA</span></div>
+  <div class="header-tag">MÓDULO 01 · SISTEMA ÓSEO</div>
 </header>
 <main>
- <div class="hero">
-  <div><div class="eyebrow">Laboratorio virtual de anatomía</div><h1>Identificación del sistema óseo</h1><p class="sub">Reconoce estructuras óseas, comprueba tus conocimientos y fortalece tu razonamiento anatómico.</p></div>
- </div>
- <section class="card" id="welcome">
-  <div class="welcome">
-   <div class="eyebrow">Antes de comenzar</div>
-   <h2>Selecciona tu modalidad de aprendizaje</h2>
-   <p class="sub">En cada pregunta, selecciona un marcador sobre el esqueleto y elige el nombre correcto. En modo examen no se muestran pistas ni explicaciones hasta finalizar.</p>
-   <div class="welcome-grid">
-    <button class="level" onclick="start('basico','estudio')"><b>01 · Básico</b><span>10 estructuras principales · con explicaciones y pistas.</span></button>
-    <button class="level" onclick="start('intermedio','estudio')"><b>02 · Intermedio</b><span>16 estructuras · incluye huesos de antebrazo y pierna.</span></button>
-    <button class="level" onclick="start('avanzado','examen')"><b>03 · Avanzado</b><span>20 estructuras · evaluación cronometrada sin pistas.</span></button>
+  <div class="hero">
+   <div><div class="eyebrow">Laboratorio virtual de anatomía</div><h1>Identificación del sistema óseo</h1><p class="sub">Reconoce estructuras óseas, comprueba tus conocimientos y fortalece tu razonamiento anatómico.</p>
    </div>
-   <p class="small">También puedes cambiar el nivel y la modalidad durante la actividad.</p>
   </div>
- </section>
- <section id="game" style="display:none">
-  <div class="shell">
-   <section class="card">
-    <div class="card-head"><h2>Mapa óseo interactivo</h2><span class="small">Vista anterior</span></div>
-    <div class="image-wrap"><div class="skeleton" id="skeleton">
-     <img src="assets/esqueleto.png" alt="Ilustración de esqueleto humano en vista anterior">
-     <!-- Puntos anatómicos aproximados sobre la ilustración proporcionada -->
-     <button class="marker" data-id="craneo" style="left:49.8%;top:9.7%" aria-label="Cráneo">1</button>
-     <button class="marker" data-id="mandibula" style="left:49.8%;top:14.5%" aria-label="Mandíbula">2</button>
-     <button class="marker" data-id="clavicula" style="left:39%;top:21%" aria-label="Clavícula">3</button>
-     <button class="marker" data-id="esternon" style="left:50%;top:27%" aria-label="Esternón">4</button>
-     <button class="marker" data-id="costillas" style="left:61%;top:30%" aria-label="Costillas">5</button>
-     <button class="marker" data-id="humero" style="left:34%;top:30%" aria-label="Húmero">6</button>
-     <button class="marker" data-id="radio" style="left:28%;top:42%" aria-label="Radio">7</button>
-     <button class="marker" data-id="cubito" style="left:71%;top:42%" aria-label="Cúbito o ulna">8</button>
-     <button class="marker" data-id="carpos" style="left:28%;top:51.5%" aria-label="Huesos del carpo">9</button>
-     <button class="marker" data-id="metacarpos" style="left:23%;top:54%" aria-label="Metacarpos">10</button>
-     <button class="marker" data-id="pelvis" style="left:50%;top:46%" aria-label="Pelvis">11</button>
-     <button class="marker" data-id="sacro" style="left:50%;top:48.5%" aria-label="Sacro">12</button>
-     <button class="marker" data-id="femur" style="left:43%;top:58%" aria-label="Fémur">13</button>
-     <button class="marker" data-id="rotula" style="left:50%;top:68.5%" aria-label="Rótula">14</button>
-     <button class="marker" data-id="tibia" style="left:46%;top:80%" aria-label="Tibia">15</button>
-     <button class="marker" data-id="perone" style="left:57%;top:80%" aria-label="Peroné o fíbula">16</button>
-     <button class="marker" data-id="tarsos" style="left:45%;top:93%" aria-label="Huesos del tarso">17</button>
-     <button class="marker" data-id="metatarsos" style="left:53%;top:95%" aria-label="Metatarsos">18</button>
-     <button class="marker" data-id="falangesmano" style="left:77%;top:55%" aria-label="Falanges de la mano">19</button>
-     <button class="marker" data-id="falangespie" style="left:50%;top:97%" aria-label="Falanges del pie">20</button>
-    </div></div>
-    <div class="legend"><span><i class="dot"></i>Pendiente</span><span><i class="dot gold"></i>Seleccionado</span><span><i class="dot green"></i>Correcto</span></div>
-   </section>
-   <section class="card">
-    <div class="card-head"><h2>Evaluación de conocimientos</h2><span class="small" id="modeLabel">Modo estudio</span></div>
-    <div class="side">
-     <div class="stats">
-      <div class="stat"><b id="score">0</b><span>Aciertos</span></div>
-      <div class="stat"><b id="remaining">10</b><span>Pendientes</span></div>
-      <div class="stat"><b id="clock">00:00</b><span>Tiempo</span></div>
-     </div>
-     <div class="progressline"><div id="bar"></div></div>
-     <div class="select-row">
-      <select id="levelSelect" aria-label="Nivel"><option value="basico">Básico</option><option value="intermedio">Intermedio</option><option value="avanzado">Avanzado</option></select>
-      <select id="modeSelect" aria-label="Modalidad"><option value="estudio">Modo estudio</option><option value="examen">Modo examen</option></select>
-     </div>
-     <div class="pills"><span class="pill active" id="pillLevel">Básico</span><span class="pill" id="pillMode">Con retroalimentación</span><span class="pill" id="streak">Racha: 0</span></div>
-     <div class="question" id="question">Selecciona un marcador numerado del esqueleto.</div>
-     <p class="instruction" id="instruction">Después, elige el nombre anatómico correcto entre las opciones.</p>
-     <div class="answers" id="answers"></div>
-     <div class="feedback" id="feedback" aria-live="polite">La actividad comenzará cuando elijas un punto del esqueleto.</div>
-     <div class="explain" id="explain"></div>
-     <div class="controls">
-      <button class="btn gold" id="hint">Ver pista</button>
-      <button class="btn" id="next" disabled>Siguiente →</button>
-      <button class="btn light" id="finishEarly">Finalizar</button>
-     </div>
+  <section class="card" id="welcome">
+   <div class="welcome">
+    <div class="eyebrow">Antes de comenzar</div>
+    <h2>Selecciona tu modalidad de aprendizaje</h2>
+    <p class="sub">En cada pregunta, selecciona un marcador sobre el esqueleto y elige el nombre correcto. En modo examen no se muestran pistas ni explicaciones hasta finalizar.</p>
+    <div class="welcome-grid">
+     <button class="level" onclick="start('basico','estudio')"><b>01 · Básico</b><span>10 estructuras principales · con explicaciones y pistas.</span></button>
+     <button class="level" onclick="start('intermedio','estudio')"><b>02 · Intermedio</b><span>16 estructuras · incluye huesos de antebrazo y pierna.</span></button>
+     <button class="level" onclick="start('avanzado','examen')"><b>03 · Avanzado</b><span>20 estructuras · evaluación cronometrada sin pistas.</span></button>
     </div>
-   </section>
-  </div>
- </section>
- <section class="card result" id="result">
-  <div class="eyebrow">Reporte de desempeño</div><h2>Actividad finalizada</h2>
-  <div class="grade" id="finalGrade">0%</div>
-  <p id="finalText"></p>
-  <div class="stats" style="max-width:520px;margin:20px auto">
-   <div class="stat"><b id="finalCorrect">0</b><span>Correctas</span></div>
-   <div class="stat"><b id="finalWrong">0</b><span>Incorrectas</span></div>
-   <div class="stat"><b id="finalTime">00:00</b><span>Tiempo</span></div>
-  </div>
-  <button class="btn" onclick="location.reload()">Volver al inicio</button>
- </section>
+    <p class="small">También puedes cambiar el nivel y la modalidad durante la actividad.</p>
+   </div>
+  </section>
+  <section id="game" style="display:none">
+   <div class="shell">
+    <section class="card">
+     <div class="card-head"><h2>Mapa óseo interactivo</h2><span class="small">Vista anterior</span></div>
+     <div class="image-wrap"><div class="skeleton" id="skeleton">
+      <img src="esqueleto.png" alt="Ilustración de esqueleto humano en vista anterior">
+      <!-- Puntos anatómicos aproximados sobre la ilustración proporcionada -->
+      <button class="marker" data-id="craneo" style="left:49.8%;top:9.7%" aria-label="Cráneo">1</button>
+      <button class="marker" data-id="mandibula" style="left:49.8%;top:14.5%" aria-label="Mandíbula">2</button>
+      <button class="marker" data-id="clavicula" style="left:39%;top:21%" aria-label="Clavícula">3</button>
+      <button class="marker" data-id="esternon" style="left:50%;top:27%" aria-label="Esternón">4</button>
+      <button class="marker" data-id="costillas" style="left:61%;top:30%" aria-label="Costillas">5</button>
+      <button class="marker" data-id="humero" style="left:34%;top:30%" aria-label="Húmero">6</button>
+      <button class="marker" data-id="radio" style="left:28%;top:42%" aria-label="Radio">7</button>
+      <button class="marker" data-id="cubito" style="left:71%;top:42%" aria-label="Cúbito o ulna">8</button>
+      <button class="marker" data-id="carpos" style="left:28%;top:51.5%" aria-label="Huesos del carpo">9</button>
+      <button class="marker" data-id="metacarpos" style="left:23%;top:54%" aria-label="Metacarpos">10</button>
+      <button class="marker" data-id="pelvis" style="left:50%;top:46%" aria-label="Pelvis">11</button>
+      <button class="marker" data-id="sacro" style="left:50%;top:48.5%" aria-label="Sacro">12</button>
+      <button class="marker" data-id="femur" style="left:43%;top:58%" aria-label="Fémur">13</button>
+      <button class="marker" data-id="rotula" style="left:50%;top:68.5%" aria-label="Rótula">14</button>
+      <button class="marker" data-id="tibia" style="left:46%;top:80%" aria-label="Tibia">15</button>
+      <button class="marker" data-id="perone" style="left:57%;top:80%" aria-label="Peroné o fíbula">16</button>
+      <button class="marker" data-id="tarsos" style="left:45%;top:93%" aria-label="Huesos del tarso">17</button>
+      <button class="marker" data-id="metatarsos" style="left:53%;top:95%" aria-label="Metatarsos">18</button>
+      <button class="marker" data-id="falangesmano" style="left:77%;top:55%" aria-label="Falanges de la mano">19</button>
+      <button class="marker" data-id="falangespie" style="left:50%;top:97%" aria-label="Falanges del pie">20</button>
+     </div></div>
+     <div class="legend"><span><i class="dot"></i>Pendiente</span><span><i class="dot gold"></i>Seleccionado</span><span><i class="dot green"></i>Correcto</span></div>
+    </section>
+    <section class="card">
+     <div class="card-head"><h2>Evaluación de conocimientos</h2><span class="small" id="modeLabel">Modo estudio</span></div>
+     <div class="side">
+      <div class="stats">
+       <div class="stat"><b id="score">0</b><span>Aciertos</span></div>
+       <div class="stat"><b id="remaining">10</b><span>Pendientes</span></div>
+       <div class="stat"><b id="clock">00:00</b><span>Tiempo</span></div>
+      </div>
+      <div class="progressline"><div id="bar"></div></div>
+      <div class="select-row">
+       <select id="levelSelect" aria-label="Nivel"><option value="basico">Básico</option><option value="intermedio">Intermedio</option><option value="avanzado">Avanzado</option></select>
+       <select id="modeSelect" aria-label="Modalidad"><option value="estudio">Modo estudio</option><option value="examen">Modo examen</option></select>
+      </div>
+      <div class="pills"><span class="pill active" id="pillLevel">Básico</span><span class="pill" id="pillMode">Con retroalimentación</span><span class="pill" id="streak">Racha: 0</span></div>
+      <div class="question" id="question">Selecciona un marcador numerado del esqueleto.</div>
+      <p class="instruction" id="instruction">Después, elige el nombre anatómico correcto entre las opciones.</p>
+      <div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback" aria-live="polite">La actividad comenzará cuando elijas un punto del esqueleto.</div>
+      <div class="explain" id="explain"></div>
+      <div class="controls">
+       <button class="btn gold" id="hint">Ver pista</button>
+       <button class="btn" id="next" disabled>Siguiente →</button>
+       <button class="btn light" id="finishEarly">Finalizar</button>
+      </div>
+     </div>
+    </section>
+   </div>
+  </section>
+  <section class="card result" id="result">
+   <div class="eyebrow">Reporte de desempeño</div><h2>Actividad finalizada</h2>
+   <div class="grade" id="finalGrade">0%</div>
+   <p id="finalText"></p>
+   <div class="stats" style="max-width:520px;margin:20px auto">
+    <div class="stat"><b id="finalCorrect">0</b><span>Correctas</span></div>
+    <div class="stat"><b id="finalWrong">0</b><span>Incorrectas</span></div>
+    <div class="stat"><b id="finalTime">00:00</b><span>Tiempo</span></div>
+   </div>
+   <button class="btn" onclick="location.reload()">Volver al inicio</button>
+  </section>
 </main>
 <footer>Material educativo de apoyo. Verifica la nomenclatura y la localización anatómica con bibliografía académica y tu docente.</footer>
 <script src="script.js" defer></script>
